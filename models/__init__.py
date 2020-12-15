@@ -1,0 +1,1 @@
+from .rgcn_semantic_encoder import RGCNSemanticEncoder

@@ -1,0 +1,10 @@
+allennlp==1.0.0
+allennlp-models==1.0.0
+dgl==0.4.3.post2
+numpy==1.19.0
+git+git://github.com/PyTorchLightning/pytorch-lightning.git@3f28a8ef321774dffeba2f412cec7a1038b5c342#egg=pytorch-lightning
+rdflib==5.0.0
+tokenizers==0.8.0rc1
+torch==1.5.1
+tqdm
+transformers==2.11.0

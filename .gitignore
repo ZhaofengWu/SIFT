@@ -1,0 +1,14 @@
+.DS_Store
+._.DS_Store
+__pycache__/
+.vscode/
+lightning_logs/
+
+data/*
+!data/.gitkeep
+
+*.sdp
+*.conllu
+*.rdf
+*.dat
+*.pkl
