@@ -27,7 +27,7 @@ We do not support CUDA>=11.0.
 
 ## Pretrained Models
 
-You can find a list of pretrained base-sized models, for both SIFT and SIFT-Light and for all GLUE tasks (except WNLI), at [this Google Drive folder](https://drive.google.com/drive/folders/1Cz4jrpoYa4w_dY2ZS683C2Bdveddkt6T). You can also run `bash scripts/download_pretraind_models.sh` to download all models at once to `pretrained_models/`, which takes around 39G before untar-ing. Most of these models have better performance than the numbers reported in the paper, because the paper reported averages across multiple seeds. Please contact us if you need large-sized models.
+You can find a list of pretrained models, for both SIFT (base + large) and SIFT-Light and for all GLUE tasks (except WNLI), at [this Google Drive folder](https://drive.google.com/drive/folders/1Cz4jrpoYa4w_dY2ZS683C2Bdveddkt6T). You can also run `bash scripts/download_pretraind_base_models.sh` to download all base-sized models at once to `pretrained_base_models/`, which takes around 39G before untar-ing. Most of these models have better performance than the numbers reported in the paper, because the paper reported averages across multiple seeds.
 
 ## GLUE Data and Semantic Graphs
 
@@ -63,17 +63,17 @@ python evaluate.py --model_dir ${MODEL_DIR} --override_data_dir ${DATA_DIR}
 
 You should get the following numbers:
 
-|                 | SIFT  | SIFT-Light |
-| --------------- | ----- | ---------- |
-| CoLA            | 65.80 | 65.78      |
-| MRPC            | 90.69 | 90.93      |
-| RTE             | 81.95 | 81.95      |
-| SST-2           | 95.64 | 94.84      |
-| STS-B           | 91.50 | 91.23      |
-| QNLI            | 93.39 | 93.10      |
-| QQP             | 91.96 | 91.75      |
-| MNLI-matched    | 88.07 | 87.74      |
-| MNLI-mismatched | 87.66 | 87.57      |
+|                 | SIFT-base | SIFT-Light-base | SIFT-large |
+| --------------- | --------- | --------------- | ---------- |
+| CoLA            | 65.80     | 65.78           | 71.84      |
+| MRPC            | 90.69     | 90.93           | 92.16      |
+| RTE             | 81.95     | 81.95           | 89.17      |
+| SST-2           | 95.64     | 94.84           | 96.67      |
+| STS-B           | 91.50     | 91.23           | 92.71      |
+| QNLI            | 93.39     | 93.10           | 94.89      |
+| QQP             | 91.96     | 91.75           | 92.29      |
+| MNLI-matched    | 88.07     | 87.74           | 90.55      |
+| MNLI-mismatched | 87.66     | 87.57           | 90.37      |
 
 Similarly, the pretrained models can be directly used for inference on the test set:
 

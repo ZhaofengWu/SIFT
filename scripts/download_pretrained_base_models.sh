@@ -16,11 +16,11 @@ gdrive_download () {
     rm /tmp/cookies.txt
 }
 
-mkdir pretrained_models
+mkdir pretrained_base_models
 
-for line in $(cat pretrained_models.csv); do
+for line in $(cat pretrained_base_models.csv); do
     filename=$(echo ${line} | cut -d, -f1)
     gdrive_id=$(echo ${line} | cut -d, -f2 | cut -d/ -f6)
     echo "Downloading ${filename}, ID=${gdrive_id}"
-    gdrive_download ${gdrive_id} pretrained_models/${filename}
+    gdrive_download ${gdrive_id} pretrained_base_models/${filename}
 done
