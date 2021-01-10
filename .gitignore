@@ -6,6 +6,7 @@ lightning_logs/
 
 data/*
 !data/.gitkeep
+pretrained_base_models
 
 *.sdp
 *.conllu

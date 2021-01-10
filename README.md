@@ -27,7 +27,7 @@ We do not support CUDA>=11.0.
 
 ## Pretrained Models
 
-You can find a list of pretrained models, for both SIFT (base + large) and SIFT-Light and for all GLUE tasks (except WNLI), at [this Google Drive folder](https://drive.google.com/drive/folders/1Cz4jrpoYa4w_dY2ZS683C2Bdveddkt6T). You can also run `bash scripts/download_pretraind_base_models.sh` to download all base-sized models at once to `pretrained_base_models/`, which takes around 39G before untar-ing. Most of these models have better performance than the numbers reported in the paper, because the paper reported averages across multiple seeds.
+You can find a list of pretrained models, for both SIFT (base + large) and SIFT-Light and for all GLUE tasks (except WNLI), at [this Google Drive folder](https://drive.google.com/drive/folders/1Cz4jrpoYa4w_dY2ZS683C2Bdveddkt6T). You can also run `bash scripts/download_pretrained_base_models.sh` to download all base-sized models at once to `pretrained_base_models/`, which takes around 39G before untar-ing. Most of these models have better performance than the numbers reported in the paper, because the paper reported averages across multiple seeds.
 
 ## GLUE Data and Semantic Graphs
 
