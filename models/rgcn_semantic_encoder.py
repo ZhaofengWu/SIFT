@@ -23,7 +23,7 @@ class RGCNSemanticEncoderBase(SemanticEncoder):
 
         if self.use_semantic_graph:
             self.emb_proj = nn.Linear(self.transformer.config.hidden_size, self.graph_dim)
-            
+
             def get_gnn_instance(n_layers):
                 return RGCN(
                     num_bases=args.graph_n_bases,
