@@ -19,14 +19,15 @@ class RGCNSemanticEncoderBase(SemanticEncoder):
 
         self.n_graph_attn_composition_layers = args.n_graph_attn_composition_layers
         self.output_size = self.transformer.config.hidden_size
+        self.graph_dim = args.graph_dim
 
         if self.use_semantic_graph:
-            self.emb_proj = nn.Linear(self.transformer.config.hidden_size, args.graph_dim)
+            self.emb_proj = nn.Linear(self.transformer.config.hidden_size, self.graph_dim)
 
             def get_gnn_instance(n_layers):
                 return RGCN(
                     num_bases=args.graph_n_bases,
-                    h_dim=args.graph_dim,
+                    h_dim=self.graph_dim,
                     num_relations=self.num_relations,
                     num_hidden_layers=n_layers,
                     dropout=args.graph_dropout,
@@ -37,11 +38,11 @@ class RGCNSemanticEncoderBase(SemanticEncoder):
             if self.n_graph_attn_composition_layers > 0:
                 self.composition_rgcn = get_gnn_instance(self.n_graph_attn_composition_layers)
 
-            self.attn_biaffine = BilinearMatrixAttention(args.graph_dim, args.graph_dim, use_input_biases=True)
-            self.attn_proj = nn.Linear(4 * args.graph_dim, args.graph_dim)
+            self.attn_biaffine = BilinearMatrixAttention(self.graph_dim, self.graph_dim, use_input_biases=True)
+            self.attn_proj = nn.Linear(4 * self.graph_dim, self.graph_dim)
 
-            self.graph_output_proj = nn.Linear(args.graph_dim, args.graph_dim)
-            self.output_size += (2 if self.is_sentence_pair_task else 1) * args.graph_dim
+            self.graph_output_proj = nn.Linear(self.graph_dim, self.graph_dim)
+            self.output_size += (2 if self.is_sentence_pair_task else 1) * self.graph_dim
 
             if self.args.post_combination_layernorm:
                 self.post_combination_layernorm = nn.LayerNorm(self.output_size, eps=self.transformer.config.layer_norm_eps)
@@ -85,13 +86,13 @@ class RGCNSemanticEncoderBase(SemanticEncoder):
                         node_embs_a, node_embs_b = self.interact_graphs(graphs_a, graphs_b, node_embs_a, node_embs_b, node_emb_mask_a, node_emb_mask_b)
 
             if graphs_a_empty:
-                rgcn_output_a = torch.zeros(batch_size, self.graph_output_size, dtype=torch.float, device=last_layers.device)
+                rgcn_output_a = torch.zeros(batch_size, self.graph_dim, dtype=torch.float, device=last_layers.device)
             else:
                 rgcn_output_a = self.pool_graph(node_embs_a, node_emb_mask_a)
 
             if self.is_sentence_pair_task:
                 if graphs_b_empty:
-                    rgcn_output_b = torch.zeros(batch_size, self.graph_output_size, dtype=torch.float, device=last_layers.device)
+                    rgcn_output_b = torch.zeros(batch_size, self.graph_dim, dtype=torch.float, device=last_layers.device)
                 else:
                     rgcn_output_b = self.pool_graph(node_embs_b, node_emb_mask_b)
 
