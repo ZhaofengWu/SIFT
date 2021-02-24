@@ -31,11 +31,11 @@ You can find a list of pretrained models, for both SIFT (base + large) and SIFT-
 
 ## GLUE Data and Semantic Graphs
 
-Download GLUE data using [this gist](https://gist.github.com/W4ngatang/60c2bdb54d156a41194446737ce03e2e). We used a prior version, specified below.
+Download GLUE data using [this gist](https://gist.github.com/W4ngatang/60c2bdb54d156a41194446737ce03e2e).
 
 ```bash
 cd data
-wget https://gist.githubusercontent.com/W4ngatang/60c2bdb54d156a41194446737ce03e2e/raw/17b8dd0d724281ed7c3b2aeeda662b92809aadd5/download_glue_data.py
+wget https://gist.githubusercontent.com/W4ngatang/60c2bdb54d156a41194446737ce03e2e/raw/1502038877f6a88c225a34450793fbc3ea87eaba/download_glue_data.py
 python download_glue_data.py
 ```
 
@@ -52,6 +52,19 @@ for dataset in $(ls glue_graphs); do echo ${dataset}; cp glue_graphs/${dataset}/
 Both SIFT and SIFT-Light require the _entire_ dataset (i.e., train, dev, and test) to be pre-parsed into semantic graphs. Some of this is not needed conceptually. For example, SIFT shouldn't need the training graphs for evaluation or inference, and SIFT-Light shouldn't need _any_ semantic graphs in non-training modes. However, we require these for an easier implementation. There can be implementations that do not require this information.
 
 Note that during the first time that you use a particular dataset (for either training, evaluation, or inference), two cached data files are created in the dataset directory for faster data loading later. This could be CPU memory intensive for large datasets. For example, processing QQP requires around 50GB-60GB of CPU memory.
+
+We used a [prior version of the GLUE downloading script](https://gist.githubusercontent.com/W4ngatang/60c2bdb54d156a41194446737ce03e2e/raw/17b8dd0d724281ed7c3b2aeeda662b92809aadd5/download_glue_data.py), but the dataset files linked there have expired and been replaced with new locations. We believe the datasets should remain the same and our pre-parsed graphs still applicable. The only exception we are aware of so far is that three malformed question pairs in QQP have been removed in the new version. Therefore, you need to manually remove the graphs corresponding to the following (0-based) indices from both the `.rdf` and `.metadata` files:
+
+```
+497656  n/a
+497657  My Chinese name is Haichao Yu. What English name is most suitable for me considering the pronounciation of my Chinese name?
+...
+620242  How can I create an Android app?
+620243
+...
+724450  How can I develop android app?
+724451
+```
 
 ## Evaluation/Inference With Pretrained Models
 
