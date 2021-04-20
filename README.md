@@ -43,7 +43,7 @@ You can find a list of pretrained models, for both SIFT (base + large) and SIFT-
 
 ## GLUE Data and Semantic Graphs
 
-Download GLUE data using [this gist](https://gist.github.com/W4ngatang/60c2bdb54d156a41194446737ce03e2e).
+Download GLUE data using [this gist](https://gist.github.com/W4ngatang/60c2bdb54d156a41194446737ce03e2e). We used a prior version of this script -- see the end of this section for some caveats.
 
 ```bash
 cd data
