@@ -1,6 +1,6 @@
 # Infusing Finetuning with Semantic Dependencies
 
-The official PyTorch implementation of our paper:
+The official PyTorch implementation for our paper:
 
 ```
 @article{wu2021infusing,
