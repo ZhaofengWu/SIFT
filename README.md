@@ -2,9 +2,21 @@
 
 The official PyTorch implementation of our paper:
 
-Infusing Finetuning with Semantic Dependencies<br/>
-Zhaofeng Wu, Hao Peng, and Noah A. Smith.<br/>
-Transactions of the Association for Computational Linguistics (TACL), 2020.
+```
+@article{wu2021infusing,
+    author = {Wu, Zhaofeng and Peng, Hao and Smith, Noah A.},
+    title = "{Infusing Finetuning with Semantic Dependencies}",
+    journal = {Transactions of the Association for Computational Linguistics},
+    volume = {9},
+    pages = {226-242},
+    year = {2021},
+    month = {03},
+    issn = {2307-387X},
+    doi = {10.1162/tacl_a_00363},
+    url = {https://doi.org/10.1162/tacl\_a\_00363},
+    eprint = {https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl\_a\_00363/1896777/tacl\_a\_00363.pdf},
+}
+```
 
 ## Environment
 
