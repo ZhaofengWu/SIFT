@@ -35,7 +35,7 @@ pip install dgl-cu102==0.4.3.post2 # change to your CUDA version
 conda install -c anaconda cudatoolkit=10.2 # may be necessary for dgl-cuda to work; change to your CUDA version
 ```
 
-We do not support CUDA>=11.0.
+We do not officially support CUDA>=11.0, but see [this issue](https://github.com/ZhaofengWu/SIFT/issues/3) for relevant discussion.
 
 ## Pretrained Models
 
