@@ -112,7 +112,7 @@ You can also use the pretrained models for inference on other tasks with the fol
 python inference.py --model_dir ${MODEL_DIR} --override_data_dir ${DATA_DIR} --inference_task ${TASK_NAME} --inference_data_dir ${INFERENCE_DATA_DIR}
 ```
 
-You will see similar runtime and memory overhead with both SIFT and SIFT-Light. This is because we are not doing anything special to remove the RGCN layers from SIFT-Light in a non-training mode, but we are not using their output. This is, again, to simply the code.
+You will see similar runtime and memory overhead with both SIFT and SIFT-Light. This is because we are not doing anything special to remove the RGCN layers from SIFT-Light in a non-training mode, but we are not using their output. This is, again, to simplify the code.
 
 ## Training Your Own Models
 
