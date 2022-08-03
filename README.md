@@ -39,7 +39,7 @@ We do not officially support CUDA>=11.0, but see [this issue](https://github.com
 
 ## Pretrained Models
 
-You can find a list of pretrained models, for both SIFT (base + large) and SIFT-Light and for all GLUE tasks (except WNLI), at [this Google Drive folder](https://drive.google.com/drive/folders/1Cz4jrpoYa4w_dY2ZS683C2Bdveddkt6T). You can also run `bash scripts/download_pretrained_base_models.sh` to download all base-sized models at once to `pretrained_base_models/`, which takes around 39G before untar-ing. Most of these models have better performance than the numbers reported in the paper, because the paper reported averages across multiple seeds.
+You can download all pretrained models, for both SIFT (base + large) and SIFT-Light and for all GLUE tasks (except WNLI), from https://arkdata.cs.washington.edu/SIFT/pretrained_models/{CoLA,MRPC,RTE,SST-2,STS-B,QNLI,QQP,MNLI}_SIFT_{base,large,Light_base}.tgz. For reference, downloading all base-sized models (excluding Light) takes around 39G before untar-ing. Most of these models have better performance than the numbers reported in the paper, because the paper reported averages across multiple seeds.
 
 ## GLUE Data and Semantic Graphs
 
@@ -51,7 +51,7 @@ wget https://gist.githubusercontent.com/W4ngatang/60c2bdb54d156a41194446737ce03e
 python download_glue_data.py
 ```
 
-Both SIFT and SIFT-Light require the target dataset to be pre-parsed into semantic graphs. The instructions can be found in [decode_che_et_al.md](decode_che_et_al.md). However, because it requires the use of the CoNLL 2019 pipeline to generate the companion data (see [decode_che_et_al.md](decode_che_et_al.md)), which is not yet public accessible as far as we know, we release pre-parsed semantic graphs for all GLUE tasks except WNLI [here](https://drive.google.com/file/d/1RQu8fbfRF7ne6JttsqxhoPrin9zvBFB1/view) (13GB before untar-ing). We provide graphs in all semantic formalisms in CoNLL 2019 except AMR (i.e., DM, EDS, PSD, UCCA), because the unanchored nature of AMR makes it theoretically impossible to do the wordpiece-node alignment. These formalisms perform similarly in our preliminary experiments and we only reported the numbers with DM in the paper.
+Both SIFT and SIFT-Light require the target dataset to be pre-parsed into semantic graphs. The instructions can be found in [decode_che_et_al.md](decode_che_et_al.md). However, because it requires the use of the CoNLL 2019 pipeline to generate the companion data (see [decode_che_et_al.md](decode_che_et_al.md)), which is not yet public accessible as far as we know, we release pre-parsed semantic graphs for all GLUE tasks except WNLI [here](https://arkdata.cs.washington.edu/SIFT/glue_graphs.tgz) (13GB before untar-ing). We provide graphs in all semantic formalisms in CoNLL 2019 except AMR (i.e., DM, EDS, PSD, UCCA), because the unanchored nature of AMR makes it theoretically impossible to do the wordpiece-node alignment. These formalisms perform similarly in our preliminary experiments and we only reported the numbers with DM in the paper.
 
 The semantic graphs need to be in the same directories as the original datasets. You can do something like this:
 
