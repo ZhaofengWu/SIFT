@@ -39,7 +39,7 @@ We do not officially support CUDA>=11.0, but see [this issue](https://github.com
 
 ## Pretrained Models
 
-You can download all pretrained models, for both SIFT (base + large) and SIFT-Light and for all GLUE tasks (except WNLI), from https://arkdata.cs.washington.edu/SIFT/pretrained_models/{CoLA,MRPC,RTE,SST-2,STS-B,QNLI,QQP,MNLI}_SIFT_{base,large,Light_base}.tgz. For reference, downloading all base-sized models (excluding Light) takes around 39G before untar-ing. Most of these models have better performance than the numbers reported in the paper, because the paper reported averages across multiple seeds.
+You can download all pretrained models, for both SIFT (base + large) and SIFT-Light and for all GLUE tasks (except WNLI), from https://arkdata.cs.washington.edu/SIFT/pretrained_models/{CoLA,MRPC,RTE,SST-2,STS-B,QNLI,QQP,MNLI}_SIFT_{base,large,Light_base}.tgz (pick any combination in {}). For reference, downloading all base-sized models (excluding Light) takes around 39G before untar-ing. Most of these models have better performance than the numbers reported in the paper, because the paper reported averages across multiple seeds.
 
 ## GLUE Data and Semantic Graphs
 
